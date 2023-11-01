@@ -1,0 +1,14 @@
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\VectorStudyCase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\VectorStudyCase.AssemblyInfoInputs.cache
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\VectorStudyCase.AssemblyInfo.cs
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\VectorStudyCase.csproj.CoreCompileInputs.cache
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\VectorStudyCase.exe
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\VectorStudyCase.deps.json
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\VectorStudyCase.runtimeconfig.json
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\VectorStudyCase.dll
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\VectorStudyCase.pdb
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\VectorStudyCase.dll
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\refint\VectorStudyCase.dll
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\VectorStudyCase.pdb
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\VectorStudyCase.genruntimeconfig.cache
+C:\Users\moham\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\ref\VectorStudyCase.dll
