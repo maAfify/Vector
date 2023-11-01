@@ -4,6 +4,7 @@ using System.Diagnostics;
 using VectorStudyCase.src.Features;
 using VectorStudyCase.src.Interfaces;
 using VectorStudyCase.VectorStringSearch.Interfaces;
+using VectorStudyCase.VectorStringSearch.Features;
 
 namespace TestProject
 {

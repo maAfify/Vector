@@ -9,7 +9,7 @@ using VectorStudyCase.VectorStringSearch.Interfaces;
 
 namespace VectorStudyCase.src
 {
-    public class StringSearchEngine : ISearchEngine<string> 
+    public class StringSearchEngine : ISearchEngine<string>
     {
         public List<string> SearchForPattern(List<ISearchStructure<string>> InputList, ISearchStructure<string> SearchInput)
         {

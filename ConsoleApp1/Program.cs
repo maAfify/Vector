@@ -3,6 +3,11 @@
 
 using VectorStudyCase.src;
 
-StringSearchEngine searchEngine = new StringSearchEngine();
+using VectorStudyCase.VectorStringSearch.Features;
+using VectorStudyCase.VectorStringSearch.Interfaces;
+
+ISearchEngine<string> searchEngine = new StringSearchEngine();
+
+ISearchEngine<int> IntegerSearchEngine = new IntegerSearchEngine();
 
 
