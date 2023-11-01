@@ -8,18 +8,13 @@ using VectorStudyCase.src.Interfaces;
 
 namespace VectorStudyCase.src.Features
 {
-    public class StringSearchedFeature : IStartWithFeature<string>
+    public class StringSearchStructure : ISearchStructure<string>
     {
         public string? Data { get;set; }
 
-        public StringSearchedFeature(string? data)
+        public StringSearchStructure(string? data)
         {
             Data = data;   
-        }
-
-        public bool? StartsWithImpl(string instance)
-        {
-            return Data?.StartsWith(instance, StringComparison.InvariantCulture);
         }
     }
 

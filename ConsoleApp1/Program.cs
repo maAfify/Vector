@@ -3,6 +3,6 @@
 
 using VectorStudyCase.src;
 
-SearchEngine<string> searchEngine = new SearchEngine<string>();
+StringSearchEngine searchEngine = new StringSearchEngine();
 
 
