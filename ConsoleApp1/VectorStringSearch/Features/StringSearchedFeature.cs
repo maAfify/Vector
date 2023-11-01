@@ -14,7 +14,7 @@ namespace VectorStudyCase.src.Features
 
         public StringSearchedFeature(string? data)
         {
-            Data = data;
+            Data = data;   
         }
 
         public bool? StartsWithImpl(string instance)
