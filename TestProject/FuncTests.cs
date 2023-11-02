@@ -73,21 +73,28 @@ namespace VectorStudyCase.Tests
         public void SearchForPatternNonTrivial_WhenPatternExists_ReturnsExpectedResults()
         {
             var searchPattern = "AN";
-            var testResults = _searchEngine.SearchForPatternNonTrivial(_inputList, new StringSearchedStructure(searchPattern));
 
+            _stopwatch.Start();
+            var testResults = _searchEngine.SearchForPatternNonTrivial(_inputList, new StringSearchedStructure(searchPattern));
+            _stopwatch.Stop();
+
+            testResults.ForEach((result) => Console.Write(result + " "));
             CollectionAssert.AreNotEqual(new[] { "ANDY" }, testResults);
+            Console.WriteLine($"\nElapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
         }
 
         [Test]
         public void SearchForPatternTrivial_WhenPatternExists_ReturnsExpectedResults()
         {
             var searchPattern = "AN";
+
             _stopwatch.Start();
             var testResults = _searchEngine.SearchForPatternTrivial(_inputList, new StringSearchedStructure(searchPattern));
             _stopwatch.Stop();
 
+            testResults.ForEach((result) => Console.Write(result + " "));
             CollectionAssert.AreEqual(new[] { "ANDY", "ANDY" }, testResults);
-            Console.WriteLine($"Elapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
+            Console.WriteLine($"\nElapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
         }
 
         [Test]
@@ -98,8 +105,9 @@ namespace VectorStudyCase.Tests
             var testResults = _searchEngine.SearchForPatternNonTrivial(_inputList, new StringSearchedStructure(searchPattern));
             _stopwatch.Stop();
 
+            testResults.ForEach((result) => Console.Write(result + " "));
             CollectionAssert.IsEmpty(testResults);
-            Console.WriteLine($"Elapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
+            Console.WriteLine($"\nElapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
         }
 
         [Test]
@@ -110,8 +118,9 @@ namespace VectorStudyCase.Tests
             var testResults = _searchEngine.SearchForPatternNonTrivial(_inputList, new StringSearchedStructure("MH"));
             _stopwatch.Stop();
 
+            testResults.ForEach((result) => Console.Write(result + " "));
             CollectionAssert.IsEmpty(testResults);
-            Console.WriteLine($"Elapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
+            Console.WriteLine($"\nElapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
         }
 
         [Test]
@@ -125,8 +134,9 @@ namespace VectorStudyCase.Tests
             var testResults = _searchEngine.SearchForPatternNonTrivial(_randomInputList, randomElement);
             _stopwatch.Stop();
 
+            testResults.ForEach((result) => Console.Write(result + " "));
             CollectionAssert.AreEqual(new[] { randomElement.Data! }, testResults);
-            Console.WriteLine($"Elapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
+            Console.WriteLine($"\nElapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
         }
 
         [Test]
@@ -140,8 +150,25 @@ namespace VectorStudyCase.Tests
             var testResults = _searchEngine.SearchForPatternTrivial(_randomInputList, randomElement);
             _stopwatch.Stop();
 
+            testResults.ForEach((result) => Console.Write(result + " "));
             CollectionAssert.AreEqual(new[] { randomElement.Data! }, testResults);
-            Console.WriteLine($"Elapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
+            Console.WriteLine($"\nElapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
+        }
+
+        [Test]
+        public void SearchForPatternTrivial2_WithRandomPattern_ReturnsExpectedResult()
+        {
+            var random = new Random();
+            int randomIndex = random.Next(0, _randomInputList.Count);
+            var randomElement = _randomInputList[randomIndex];
+
+            _stopwatch.Start();
+            var testResults = _searchEngine.SearchForPatternTrivial(_randomInputList, randomElement);
+            _stopwatch.Stop();
+
+            testResults.ForEach((result) => Console.Write(result + " "));
+            CollectionAssert.AreEqual(new[] { randomElement.Data! }, testResults);
+            Console.WriteLine($"\nElapsed time in microseconds: {_stopwatch.ElapsedTicks / 10.0}");
         }
     }
 }

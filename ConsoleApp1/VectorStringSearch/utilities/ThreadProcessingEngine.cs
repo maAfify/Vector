@@ -9,7 +9,7 @@ namespace VectorStudyCase.VectorStringSearch.utilities
     /// <summary>
     /// Utility class for managing thread data and performing multicore search operations.
     /// </summary>
-    public class ThreadDataDetails
+    public class ThreadProcessingEngine
     {
         /// <summary>
         /// Creates a new thread and returns its handle.

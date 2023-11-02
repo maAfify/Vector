@@ -40,16 +40,16 @@ namespace VectorStudyCase.src
         /// <returns>List of matching results.</returns>
         public List<string> SearchForPatternNonTrivial(List<ISearchStructure<string>> InputList, ISearchStructure<string> SearchInput)
         {
-            return new ThreadDataDetails().MulticoreSearchPattern(StringSearch, InputList, SearchInput);
+            return new ThreadProcessingEngine().MulticoreSearchPattern(StringSearch, InputList, SearchInput);
         }
 
         /// <summary>
         /// Performs string search on the provided data using the specified thread data.
         /// </summary>
         /// <param name="data">Thread data containing input list, search pattern, and result list.</param>
-        public static void StringSearch(ThreadDataDetails.ThreadData data)
+        public static void StringSearch(ThreadProcessingEngine.ThreadData data)
         {
-            ThreadDataDetails.ThreadData threadData = data;
+            ThreadProcessingEngine.ThreadData threadData = data;
 
             foreach (var input in threadData.InputList)
             {

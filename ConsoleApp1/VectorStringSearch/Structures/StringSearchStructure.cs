@@ -10,7 +10,7 @@ namespace VectorStudyCase.src.Features
 {
     public record StringSearchedStructure : ISearchStructure<string>
     {
-        public string? Data { get; }
+        public string? Data { get; init; }
 
         public StringSearchedStructure(string? data)
         {
