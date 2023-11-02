@@ -8,13 +8,13 @@ using VectorStudyCase.src.Interfaces;
 
 namespace VectorStudyCase.src.Features
 {
-    public class StringSearchedStructure : ISearchStructure<string>
+    public record StringSearchedStructure : ISearchStructure<string>
     {
-        public string? Data { get;set; }
+        public string? Data { get; }
 
         public StringSearchedStructure(string? data)
         {
-            Data = data;   
+            Data = data;
         }
     }
 
