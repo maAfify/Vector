@@ -10,7 +10,7 @@ namespace VectorStudyCase.VectorStringSearch.Features
 {
     public class IntegerSearchEngine : ISearchEngine<int>
     {
-        public List<int> SearchForPattern(List<ISearchStructure<int>> InputList, ISearchStructure<int> SearchInput)
+        public List<int> SearchForPatternTrivial(List<ISearchStructure<int>> InputList, ISearchStructure<int> SearchInput)
         {
             throw new NotImplementedException();
         }

@@ -31,7 +31,7 @@ namespace VectorStudyCase.VectorStringSearch.utilities
             }
         }
 
-        public static List<string> MulticoreSearchPattern(Action ThreadProc, List<ISearchStructure<string>> InputList, ISearchStructure<string> SearchInput)
+        public List<string> MulticoreSearchPattern(Action<ThreadData> StringSearch, List<ISearchStructure<string>> InputList, ISearchStructure<string> SearchInput)
         {
             int numThreads = Environment.ProcessorCount;
             List<string> resultList = new List<string>();
@@ -42,7 +42,6 @@ namespace VectorStudyCase.VectorStringSearch.utilities
 
             // Create thread handles
             IntPtr[] threadHandles = new IntPtr[numThreads];
-            ThreadData[] threadDataArray = new ThreadData[numThreads];
 
             // Start multiple threads for parallel searching
             for (int i = 0; i < numThreads; i++)
@@ -50,8 +49,13 @@ namespace VectorStudyCase.VectorStringSearch.utilities
                 int startIndex = i * itemsPerThread + Math.Min(i, remainingItems);
                 int endIndex = startIndex + itemsPerThread + (i < remainingItems ? 1 : 0);
 
-                threadDataArray[i] = new ThreadData(InputList.GetRange(startIndex, endIndex - startIndex), SearchInput, resultList);
-                threadHandles[i] = CreateThread(IntPtr.Zero, 0, Marshal.GetFunctionPointerForDelegate(new ThreadStart(ThreadProc)), Marshal.UnsafeAddrOfPinnedArrayElement(threadDataArray, i), 0, out _);
+                ThreadData threadData = new ThreadData(InputList.GetRange(startIndex, endIndex - startIndex), SearchInput, resultList);
+                #region oldimplementation
+                //Thread.SetData(Thread.GetNamedDataSlot("ThreadData"), threadDataArray[i]);
+                //threadHandles[i] = CreateThread(IntPtr.Zero, 0, Marshal.GetFunctionPointerForDelegate(new ThreadStart(StringSearch)), Marshal.UnsafeAddrOfPinnedArrayElement(threadDataArray, i), 0, out _);
+                //threadHandles[i] = CreateThread(IntPtr.Zero, 0, Marshal.GetFunctionPointerForDelegate(new ThreadStart(StringSearch)), IntPtr.Zero, 0, out _);
+                #endregion
+                threadHandles[i] = CreateThread(IntPtr.Zero, 0, Marshal.GetFunctionPointerForDelegate(new ThreadStart(() => StringSearch(threadData))), IntPtr.Zero, 0, out _);
             }
 
             // Wait for all threads to complete
@@ -59,5 +63,7 @@ namespace VectorStudyCase.VectorStringSearch.utilities
 
             return resultList;
         }
+
+       
     }
 }

@@ -13,9 +13,9 @@ namespace VectorStudyCase.src
 {
     public class StringSearchEngine : ISearchEngine<string>
     {
-        public List<string> SearchForPattern(List<ISearchStructure<string>> InputList, ISearchStructure<string> SearchInput)
+        public List<string> SearchForPatternTrivial(List<ISearchStructure<string>> InputList, ISearchStructure<string> SearchInput)
         {
-            List<string> Result = new List<string>(); 
+            List<string> Result = new(); 
 
             foreach (var input in InputList)
             {
@@ -29,12 +29,12 @@ namespace VectorStudyCase.src
 
         public List<string> SearchForPatternNonTrivial(List<ISearchStructure<string>> InputList, ISearchStructure<string> SearchInput)
         {
-            return ThreadDataDetails.MulticoreSearchPattern(StringSearch, InputList, SearchInput);
+            return new ThreadDataDetails().MulticoreSearchPattern(StringSearch, InputList, SearchInput);
         }
 
-        public void StringSearch()
+        public static void StringSearch(ThreadDataDetails.ThreadData data)
         {
-            ThreadDataDetails.ThreadData threadData = (ThreadDataDetails.ThreadData)Thread.GetData(Thread.GetNamedDataSlot("ThreadData"))!;
+            ThreadDataDetails.ThreadData threadData = data;
 
             foreach (var input in threadData.InputList)
             {
@@ -47,5 +47,6 @@ namespace VectorStudyCase.src
                 }
             }
         }
+
     }
 }
