@@ -10,7 +10,7 @@ namespace VectorStudyCase.src.Features
 {
     public class IntegerSearchStructure : ISearchStructure<int>
     {
-        public int Data { get; set; }
+        public int Data { get; private set; }
         public IntegerSearchStructure(int data)
         {
             Data = data;

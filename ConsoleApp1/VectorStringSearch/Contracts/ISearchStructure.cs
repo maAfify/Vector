@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace VectorStudyCase.src.Interfaces
 {
-    public interface ISearchStructure<T> 
+    public interface ISearchStructure<T>
         where T : IComparable
     {
-        public T? Data { get; set; }
+        public T? Data { get; }
     }
 }

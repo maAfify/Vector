@@ -8,11 +8,11 @@ using VectorStudyCase.src.Interfaces;
 
 namespace VectorStudyCase.src.Features
 {
-    public class StringSearchStructure : ISearchStructure<string>
+    public class StringSearchedStructure : ISearchStructure<string>
     {
         public string? Data { get;set; }
 
-        public StringSearchStructure(string? data)
+        public StringSearchedStructure(string? data)
         {
             Data = data;   
         }
