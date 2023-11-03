@@ -71,7 +71,7 @@ namespace VectorStudyCase.Tests
         }
 
         [Test]
-        public void SearchForPatternNonTrivial_WhenPatternExists_ReturnsExpectedResults()
+        public void SearchForPatternNonTrivial_DefinedInputList_WhenPatternExists_ReturnsExpectedResults()
         {
             var searchPattern = "AN";
 
@@ -85,7 +85,7 @@ namespace VectorStudyCase.Tests
         }
 
         [Test]
-        public void SearchForPatternTrivial_WhenPatternExists_ReturnsExpectedResults()
+        public void SearchForPatternTrivial_DefinedInputList_WhenPatternExists_ReturnsExpectedResults()
         {
             var searchPattern = "AN";
 
@@ -99,7 +99,7 @@ namespace VectorStudyCase.Tests
         }
 
         [Test]
-        public void SearchForPatternNonTrivial_WhenPatternDoesNotExist_ReturnsEmptyResults()
+        public void SearchForPatternNonTrivial_DefinedInputList_WhenPatternDoesNotExist_ReturnsEmptyResults()
         {
             var searchPattern = "MH";
             _stopwatch.Start();
@@ -112,7 +112,7 @@ namespace VectorStudyCase.Tests
         }
 
         [Test]
-        public void SearchForPatternNonTrivial_WithEmptyInputList_ReturnsEmptyResults()
+        public void SearchForPatternNonTrivial_DefinedInputList_WithEmptyInputList_ReturnsEmptyResults()
         {
             _inputList.Clear();
             _stopwatch.Start();
