@@ -5,13 +5,14 @@ using System.Diagnostics;
 using VectorStudyCase.src;
 using VectorStudyCase.src.Features;
 using VectorStudyCase.src.Interfaces;
+using VectorStudyCase.VectorStringSearch.Interfaces;
 
 namespace VectorStudyCase.Tests
 {
     [TestFixture]
     public class StringSearchEngineTests
     {
-        private StringSearchEngine _searchEngine;
+        private ISearchEngine<string> _searchEngine;
         private List<ISearchStructure<string>> _inputList;
         private List<ISearchStructure<string>> _randomInputList;
         private Stopwatch _stopwatch;

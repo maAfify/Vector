@@ -19,17 +19,11 @@ namespace VectorStudyCase.src
         /// <returns>List of matching results.</returns>
         public List<string> SearchForPatternTrivial(List<ISearchStructure<string>> InputList, ISearchStructure<string> SearchInput)
         {
-            List<string> Result = new();
+            List<string> result = new();
 
-            foreach (var input in InputList)
-            {
-                if (input.Data?.StartsWith(SearchInput.Data!, StringComparison.OrdinalIgnoreCase) == true)
-                {
-                    Result.Add(input.Data);
-                }
-            }
+            ProcessSearchData(InputList, SearchInput, result.Add);
 
-            return Result;
+            return result;
         }
 
         /// <summary>
@@ -51,14 +45,28 @@ namespace VectorStudyCase.src
         {
             ThreadProcessingEngine.ThreadData threadData = data;
 
-            foreach (var input in threadData.InputList)
+            ProcessSearchData(threadData.InputList, threadData.SearchInput, result =>
             {
-                if (input.Data?.StartsWith(threadData.SearchInput.Data!, StringComparison.OrdinalIgnoreCase) == true)
+                lock (threadData.ResultList)
                 {
-                    lock (threadData.ResultList)
-                    {
-                        threadData.ResultList.Add(input.Data);
-                    }
+                    threadData.ResultList.Add(result);
+                }
+            });
+        }
+
+        /// <summary>
+        /// ProcessSearchData
+        /// </summary>
+        /// <param name="inputList"></param>
+        /// <param name="searchInput"></param>
+        /// <param name="processResult ">delegate action</param>
+        private static void ProcessSearchData(List<ISearchStructure<string>> inputList, ISearchStructure<string> searchInput, Action<string> processResult)
+        {
+            foreach (var input in inputList)
+            {
+                if (input.Data?.StartsWith(searchInput.Data!, StringComparison.CurrentCultureIgnoreCase) == true)
+                {
+                    processResult(input.Data);
                 }
             }
         }
